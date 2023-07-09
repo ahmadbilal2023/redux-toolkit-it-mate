@@ -1,22 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface Productstate {
-  Shoes: string;
-  Company: string;
-  Quantity: number;
+  productName: string;
+  category: string;
+  quantity: number;
 }
 
 const initialState: Productstate[] = [
-  { Shoes: "Black", Company: "bata", Quantity: 2 },
-  { Shoes: "Brown", Company: "Starlet", Quantity: 3 },
-  { Shoes: "Pink", Company: "Service", Quantity: 5 },
+  { productName: "Black", category: "bata", quantity: 2 },
+  { productName: "Brown", category: "Starlet", quantity: 3 },
+  { productName: "Pink", category: "Service", quantity: 5 },
 ];
 
 const ProductSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    addProduct(state, action) {},
+    addProduct(state, action) {
+      state.push(action.payload);
+    },
     deleteProduct(state, action) {},
   },
 });
